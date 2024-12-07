@@ -78,7 +78,9 @@ jobs:
       working-directory: /workdir
       run: |
         df -hT $PWD
-        git clone $REPO_URL -b $REPO_BRANCH openwrt
+        git clone $REPO_URL openwrt
+        cd openwrt
+        git checkout a4c100df521b92bd6da54fdf2b3a76c53e6353e9
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
 
     - name: Cache
@@ -93,7 +95,6 @@ jobs:
         [ -e $FEEDS_CONF ] && mv $FEEDS_CONF openwrt/feeds.conf.default
         chmod +x $DIY_P1_SH
         cd openwrt
-        git checkout a4c100df521b92bd6da54fdf2b3a76c53e6353e9
         $GITHUB_WORKSPACE/$DIY_P1_SH
 
     - name: Update feeds
