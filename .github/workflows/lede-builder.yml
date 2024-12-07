@@ -30,7 +30,7 @@ on:
         type: boolean
 
 env:
-  REPO_URL: https://github.com/coolsnowwolf/lede@91b20eaedb957f693f931770d474327b1a49a10f
+  REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_BRANCH: master
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: .config
@@ -93,6 +93,7 @@ jobs:
         [ -e $FEEDS_CONF ] && mv $FEEDS_CONF openwrt/feeds.conf.default
         chmod +x $DIY_P1_SH
         cd openwrt
+        git checkout a4c100df521b92bd6da54fdf2b3a76c53e6353e9
         $GITHUB_WORKSPACE/$DIY_P1_SH
 
     - name: Update feeds
