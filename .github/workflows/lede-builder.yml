@@ -30,7 +30,7 @@ on:
         type: boolean
 
 env:
-  REPO_URL: https://github.com/coolsnowwolf/lede
+  REPO_URL: https://github.com/coolsnowwolf/lede@91b20eaedb957f693f931770d474327b1a49a10f
   REPO_BRANCH: master
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: .config
